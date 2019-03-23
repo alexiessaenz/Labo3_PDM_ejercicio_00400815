@@ -8,14 +8,14 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/et_user"
+        android:id="@+id/tv_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="USERNAME"/>
 
     <TextView
-        android:id="@+id/et_pass"
+        android:id="@+id/tv_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -23,7 +23,7 @@
         />
 
     <TextView
-        android:id="@+id/et_email"
+        android:id="@+id/tv_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -31,7 +31,7 @@
         />
 
     <TextView
-        android:id="@+id/et_gender"
+        android:id="@+id/tv_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -40,7 +40,7 @@
 
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="send"
