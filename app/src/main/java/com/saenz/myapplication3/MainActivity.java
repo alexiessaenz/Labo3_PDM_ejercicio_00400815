@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         mEditText2 = findViewById(R.id.et_pass);
         mEditText3 = findViewById(R.id.et_email);
         mEditText4 = findViewById(R.id.et_gender);
+
         mButton_send.setOnClickListener(v -> {
             Intent mIntent = new Intent(MainActivity.this, Main2Activity.class);
             mIntent.putExtra(AppConstants.USER_KEY,mEditText1.getText().toString());

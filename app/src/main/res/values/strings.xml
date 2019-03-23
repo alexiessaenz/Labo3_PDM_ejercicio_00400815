@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LABO 3</string>
+    <string name="password">PASSWORD</string>
+    <string name="email">EMAIL</string>
+    <string name="gender">GENDER</string>
+    <string name="send">send</string>
+    <string name="texto_recibido">Texto recibido:</string>
+    <string name="share">Share</string>
 </resources>
