@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 public class Main2Activity extends AppCompatActivity {
     TextView mTextView1, mTextView2, mTextView3, mTextView4;
     String user, pass, email, gender, string_share;
     Button mButton_Share;
-
+    String json="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,18 +25,27 @@ public class Main2Activity extends AppCompatActivity {
 
         mButton_Share = findViewById(R.id.bt_share);
 
+
         Intent mIntent = this.getIntent();
+
+        //Creamos un objeto Gson
+        Gson gson = new Gson();
+
         if(mIntent != null){
-            user= mIntent.getStringExtra(AppConstants.USER_KEY);
-            mTextView1.setText(user);
-            pass= mIntent.getStringExtra(AppConstants.PASS_KEY);
-            mTextView2.setText(pass);
-            email= mIntent.getStringExtra(AppConstants.EMAIL_KEY);
-            mTextView3.setText(email);
-            gender= mIntent.getStringExtra(AppConstants.GENDER_KEY);
-            mTextView4.setText(gender);
+            //Recuperamos la cadena json
+             json = mIntent.getStringExtra("json");
+
+            //Creamos un nuevo Usuario a partir de json
+            Usuario usuario = gson.fromJson(json, Usuario.class);
+
+            mTextView1.setText(usuario.getmUser());
+            mTextView2.setText(usuario.getmPass());
+            mTextView3.setText(usuario.getmEmail());
+            mTextView4.setText(usuario.getmGender());
 
         }
+
+        final String mJson_share = json;
 
         mButton_Share.setOnClickListener(v -> {
             Intent mIntent_Share = new Intent();
@@ -43,7 +54,7 @@ public class Main2Activity extends AppCompatActivity {
             mIntent_Share.setType("text/plain");
             string_share=user + "\n" + pass + "\n" + email + "\n" + gender;
 
-            mIntent_Share.putExtra(Intent.EXTRA_TEXT,string_share);
+            mIntent_Share.putExtra(Intent.EXTRA_TEXT,mJson_share);
 
             if (mIntent_Share.resolveActivity(getPackageManager()) != null) {
                 startActivity(mIntent_Share);
